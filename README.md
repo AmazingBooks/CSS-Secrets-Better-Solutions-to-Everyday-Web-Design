@@ -36,3 +36,19 @@ Last but not least is the Web Performance, making an Website or App more perform
         - Use a CSS Preprocessor
         - Less images
         - Compress images
+        
+## How CSS works behind the scenes? 
+In a Browser when the user opens a page, the browser starts to load the initial HTML file. It then takes the loaded HTML code and parses it which basically means that it decodes the code line by line. From this process the Browser builds the so called DOCUMENT OBJECT MODEL or DOM, which basically describes the entire web document, like a family tree, with parents, siblings and children elements. So this Document Object Model is where the entire HTML code is stored. Now as the Browser parses the HTML, it also finds, the stylesheets included in the HTML head and it starts loading them as well. And just like HTML, CSS is also parsed, but the parsing of CSS is a bit more complex. 
+
+During the CSS parsing phase there are two mains steps: 
+```Sass
+    (1) - First off, conflicting CSS Declarations are resolved through a process known as a CASCADE;
+    (2) - The 2nd Step in the CSS parsing is to process final CSS Values 
+                Example: converting a margin defined in percentage uinits in pixels;
+```
+
+After this 2 Steps the final CSS is also stored in a tree like structure called the CSS Object Model - CSSOM, similar to the DOM.
+Finally we have the HTML as well as the CSS parsed and stored, these together form the RENDER TREE. And with that we finally everything to render the page(Website is rendering the visual formatting model).
+
+Now in order to render the page the Browser use something called the Visual Formatting Model. The algorithm calculates and uses a bunch of stuff like the box model, floats and postioning. This VFO has a lot to do with the way we write our code. 
+After VFO has done its work the Website it's finally rendered, or painted to the screen and the process is finished.
