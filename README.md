@@ -52,7 +52,7 @@ When the 2 steps get completed, the final CSS is also stored in a tree like stru
 HTML + CSS parsed and stored, **form** together the RENDER TREE. Now in order to render the page the Browser use something called the Visual Formatting Model. The algorithm calculates and uses a bunch of stuff like the box model, floats and postioning. 
 VFO has a lot to do with the way we write our code. After VFO has done its work the Website it's finally rendered, or painted to the screen and the process is completed.
 
-## CSS parsing Phase - ### Quick Review - CSS Terminology
+## CSS parsing Phase - Quick Review - CSS Terminology
 A Css Rule consist of a Selector and a Declaration Block: 
 
 <p align="center">
