@@ -75,7 +75,7 @@ But how does Cascade resolve all the conflicts when more than one rule applies? 
 in order to determine which one takes precedence. First the Cascade starts by giving the conflicting declarations different importance's based on where they are declared, so based on their source. The most important declarations are user declarations marked with the keywork !important. 
 
 
-## BEST PRACTICES RULES:
+## BEST PRACTICE RULES:
 - CSS declarations marked with !important have the highest priority;
 - Use !important as a last resource. It's better to use correct specificities, essential for  **maintanable** Code;
 - Inline Styles will always have priority over styles in external style sheets;
@@ -84,3 +84,7 @@ in order to determine which one takes precedence. First the Cascade starts by gi
 - The universal selector * has **no** specificity value **(0, 0, 0, 0)**, which means that all other selectors has a precedence over it;
 - As a Good practice is better to rely on **specificity** than on the **order** of selectors;
 - Rely on **order** when using 3rd-party stylesheets - always put your author style sheets last;
+
+
+
+
