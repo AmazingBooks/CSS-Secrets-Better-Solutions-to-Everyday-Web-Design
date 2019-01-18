@@ -92,14 +92,14 @@ Some properties in CSS inherit the computed value of their parent elements;
 
 
 ### How the CSS Engine Converts UNITS from Relative to Absolute(PX):  
-> Relative UNITS are FUNDAMENTAL to build modern responsive layouts;
-> Each CSS property has a initial value, used if nothing is declared ( and if there is no inheritance);
-> Browsers specify a **ROOT** font-size for each page(usually 16px);
-> Percentanges and relative values are always converted to pixels in order for CSS Engine to be able to render the page on the screen;
-> Percentages are measured relative to their parent's font-size, if used to specify font-size;
-> Percentages are measured relative to their parent's width, if used to specify lengths;
-> em are measured relative to their parent font-size, if used to specify font-size;
-> em are measured relative to the current font-size, if used to specify lengths;
-> rem are always measured relative to the document's root font-size;
-> vh and vw are simply percentage neasyrenebts of the viewport's height abd width;
+- Relative UNITS are FUNDAMENTAL to build modern responsive layouts;
+- Each CSS property has a initial value, used if nothing is declared ( and if there is no inheritance);
+- Browsers specify a **ROOT** font-size for each page(usually 16px);
+- Percentanges and relative values are always converted to pixels in order for CSS Engine to be able to render the page on the screen;
+- Percentages are measured relative to their parent's font-size, if used to specify font-size;
+- Percentages are measured relative to their parent's width, if used to specify lengths;
+- **em** are measured relative to their parent font-size, if used to specify font-size;
+- **em** are measured relative to the current font-size, if used to specify lengths;
+- **rem** are always measured relative to the document's root font-size;
+- **vh** and **vw** are simply percentage neasyrenebts of the viewport's height abd width;
 
