@@ -53,5 +53,12 @@ HTML + CSS parsed and stored, **form** together the RENDER TREE. Now in order to
 VFO has a lot to do with the way we write our code. After VFO has done its work the Website it's finally rendered, or painted to the screen and the process is completed.
 
 
+## CSS parsing Phase
 
+### Quick Review - CSS Terminology
+A Css Rule consist of a Selector and a Declaration Block: 
+
+<p align="center">
+   <img src="https://www.tutorialchip.com/wp-content/uploads/2010/12/CSS-Rules-Part1.jpg">
+</p>
 
