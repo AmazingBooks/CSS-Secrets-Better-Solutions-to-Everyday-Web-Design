@@ -38,7 +38,7 @@ Last but not least is the Web Performance, making an Website or App more perform
 - Compress images
         
 ## How CSS works behind the scenes? 
-In a Browser when the user opens a page, the browser starts to load the initial HTML file. It then takes the loaded HTML code and parses it which basically means that it decodes the code line by line. From this process the Browser builds the so called DOCUMENT OBJECT MODEL or DOM, which basically describes the entire web document, like a family tree, with parents, siblings and children elements. So this Document Object Model is where the entire HTML code is stored. Now as the Browser parses the HTML, it also finds, the stylesheets included in the HTML head and it starts loading them as well. And just like HTML, CSS is also parsed, but the parsing of CSS is a bit more complex. 
+When the user opens a page, the browser starts to load the initial HTML file. It then takes the loaded HTML code and parses it which basically means that it decodes the code line by line. From this process the Browser builds the so called DOCUMENT OBJECT MODEL or DOM, which basically describes the entire web document, like a family tree, with parents, siblings and children elements. So this Document Object Model is where the entire HTML code is stored. Now as the Browser parses the HTML, it also finds, the stylesheets included in the HTML head and it starts loading them as well. And just like HTML, CSS is also parsed, but the parsing of CSS is a bit more complex. 
 
 During the CSS parsing phase there are two mains steps: 
 ```Sass
