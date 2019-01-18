@@ -52,13 +52,35 @@ When the 2 steps get completed, the final CSS is also stored in a tree like stru
 HTML + CSS parsed and stored, **form** together the RENDER TREE. Now in order to render the page the Browser use something called the Visual Formatting Model. The algorithm calculates and uses a bunch of stuff like the box model, floats and postioning. 
 VFO has a lot to do with the way we write our code. After VFO has done its work the Website it's finally rendered, or painted to the screen and the process is completed.
 
-
-## CSS parsing Phase
-
-### Quick Review - CSS Terminology
+## CSS parsing Phase - ### Quick Review - CSS Terminology
 A Css Rule consist of a Selector and a Declaration Block: 
 
 <p align="center">
    <img src="https://www.tutorialchip.com/wp-content/uploads/2010/12/CSS-Rules-Part1.jpg">
 </p>
 
+
+
+## The Anatomy of 'C' in CSS - CASCADE and SPECIFICTY what you need to know:
+  - Cascade is the process of combining different style sheets and resolving conflicts between different CSS rules and declarations, when more than one rule applies to a certain element. A declaration for a certain style property like font size, can appear in several stylesheets and also several times inside one single style sheet. Css can come from different sources. The declarations that we put in our stylesheets are divided in 3 main categories: 
+	- Author declarations;
+	- User declarations, CSS coming from the user(e.g. user changes the CSS in the Browser).
+	- Browser(user agent) declarations - for instance if we use an anchor tag or link and we don't syle it at all it is usually rendered with blue text and underline, called the user agent CSS because it is set by the browser. 
+
+So in the end, Cascade combines the CSS declarations coming from all these different sources 
+But how does Cascade resolve all the conflicts when more than one rule applies? - Well what it does is to looks at:
+
+	IMPORTANCE(WEIGHT) > SPECIFICITY > SOURCE ORDER
+
+in order to determine which one takes precedence. First the Cascade starts by giving the conflicting declarations different importance's based on where they are declared, so based on their source. The most important declarations are user declarations marked with the keywork !important. 
+
+
+## BEST PRACTICES RULES:
+- CSS declarations marked with !important have the highest priority;
+- Use !important as a last resource. It's better to use correct specificities, essential for  **maintanable** Code;
+- Inline Styles will always have priority over styles in external style sheets;
+- A selector that contains **1** ID is more specific than one with 1000 Classes;
+- A selector that contains **1** CLASS is more specific than one with 1000 Elements;
+- The universal selector * has **no** specificity value **(0, 0, 0, 0)**, which means that all other selectors has a precedence over it;
+- As a Good practice is better to rely on **specificity** than on the **order** of selectors;
+- Rely on **order** when using 3rd-party stylesheets - always put your author style sheets last;
