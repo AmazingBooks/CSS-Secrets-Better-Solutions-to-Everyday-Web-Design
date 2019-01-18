@@ -86,5 +86,20 @@ in order to determine which one takes precedence. First the Cascade starts by gi
 - Rely on **order** when using 3rd-party stylesheets - always put your author style sheets last;
 
 
+### How are Values processed in the CSS parsing phase?
+Each CSS property have something called the "initial value", which is simply the value used if there is no cascaded value. So basically if we do not declare a value and if neither the Browser nor the user define a value, then the inital value will be used; Different properties have different initial values (e.g. padding has a inital value of 0 px); For font-size the Browser has a default value of 16px; so this will be the default inital value for all elements; if there is a font-size declaration for another element in rem(relative unit) - like p { font-size: 1.5rem } - this value will be converted by the engine into px - 24px( 1.5 * 16px) - the rem unit is always relative to the root font size;
+Some properties in CSS inherit the computed value of their parent elements; 
 
+
+### How the CSS Engine Converts UNITS from Relative to Absolute(PX):  
+> Relative UNITS are FUNDAMENTAL to build modern responsive layouts;
+> Each CSS property has a initial value, used if nothing is declared ( and if there is no inheritance);
+> Browsers specify a **ROOT** font-size for each page(usually 16px);
+> Percentanges and relative values are always converted to pixels in order for CSS Engine to be able to render the page on the screen;
+> Percentages are measured relative to their parent's font-size, if used to specify font-size;
+> Percentages are measured relative to their parent's width, if used to specify lengths;
+> em are measured relative to their parent font-size, if used to specify font-size;
+> em are measured relative to the current font-size, if used to specify lengths;
+> rem are always measured relative to the document's root font-size;
+> vh and vw are simply percentage neasyrenebts of the viewport's height abd width;
 
