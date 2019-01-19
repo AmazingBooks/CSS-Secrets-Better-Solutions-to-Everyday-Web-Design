@@ -103,3 +103,8 @@ Some properties in CSS inherit the computed value of their parent elements;
 - **rem** are always measured relative to the document's root font-size;
 - **vh** and **vw** are simply percentage neasyrenebts of the viewport's height abd width;
 
+
+### How does the Inheritance works?: 
+Inheritance is a way of propagating property values from parent elements to their children; 
+Inheritance allows developers to write less code thus it is more maintanable;
+As a RULE of thumb - all the properties related to text(font-family, font-size, line-height, color, etc..) are inherited; Other properties like margins and paddings are ofc not inherited. Now it is also important to remember that what gets inherited is the computed value of a property and not the declared value. Also inheritance of a property only works if neither the developer or the browser declared a value for that property.We can use inherit keyword to force inheritance of a certain property. In the same way the inital keyword can be used to reset the property to it's initial value;
