@@ -108,3 +108,99 @@ Some properties in CSS inherit the computed value of their parent elements;
 Inheritance is a way of propagating property values from parent elements to their children; 
 Inheritance allows developers to write less code thus it is more maintanable;
 As a RULE of thumb - all the properties related to text(font-family, font-size, line-height, color, etc..) are inherited; Other properties like margins and paddings are ofc not inherited. Now it is also important to remember that what gets inherited is the computed value of a property and not the declared value. Also inheritance of a property only works if neither the developer or the browser declared a value for that property.We can use inherit keyword to force inheritance of a certain property. In the same way the inital keyword can be used to reset the property to it's initial value;
+
+
+### CSS Visual Formatting Model
+Is an algorithm that calculates boxes and determines the layout of these boxes for each element in the render tree, in order to determine the final layout of the page.  In order to do this the Algorithm takes into account factors like
+- **Dimensions of the Boxes** - calculated by the **BOX MODEL**;
+- **Box type**: inline, block and inline-block;
+- **Positioning scheme**: Floats and positioning(absolute or relative);
+- **Stacking context**;
+- Other elements that are present in the render tree such as siblings or parents;
+- Viewport size, dimensions of images(external information)
+
+So by putting all of the above factors together the Browser figures out how the final website will look for the user.
+
+#### 1. The BOX MODEL
+- It is the factor that defines how elements are displayed on a webpage and how they are sized; According to Box Model each and every element on a webpage can be seen as a rectangle box. Each box can have a content, padding, border, fill area, margins, width and height; But note that they are all optional, so we can have boxes with no margins or paddings.
+
+- Content - contains text, images or other content that we specify;
+- Padding - transparent area around the content, inside of the box;
+	  - used to generate white space inside of the box; 
+- Border - goes around the padding and the content;
+- Margin - which is the space between the boxes, elements - know as the white space  outside the box; 
+- Fill Area - which is the area that gets filled with background color and background image; Fill area contains only the padding and the border, margin is excluded.
+- Width and Height:
+If width and height are not specified, the Visual Formatting Model(VFO) will just use the content of the box to determine its size;
+Below is the FORMULA to calculate the width and height for an Element:
+image here 
+
+This means that whenever we define a width or a height of a box, the padding and border get added to what we defined.
+
+But that doesn't sound very practical, right? So the solution to fix this problem is to use the box-sizing property with the value of border box.
+
+So, if we set box sizing to border box, the height and the width will be defined for the entire box including the padding and the border and not just for the content area.
+
+What this means, at the same time is that the paddings and borders that we specify, will of course reduce the inner width of the content area, instead of adding them to the total height or width of an element.
+
+So, if we now define some paddings or borders, they will not get added to the dimensions of the box.
+
+#### 2. Box types - inline, block and inline-block:
+
+**Block level box** - The type of a box is always defined by a display property.
+HTML elements have a display default property, such as paragraphs or divs, are usually formatted visually as blocks, and have their display property set to block by default.
+
+We can always, of course, change this property manually, which can be very useful in some cases.
+
+Being a block-level box, this block will always occupy as much space as possible, which is usually 100% of its parent width. They create line breaks after and before it, meaning that blocks are formatted vertically one after another.
+
+**Inline boxes** -  they're basically the opposite of block-level boxes, because their content is distributed in lines, meaning that an inline box only occupies
+the space that its content actually needs. Therefore, they also don't cause line breaks after or in line with them. But instead, they just sit inside their block-level parent element.
+
+> NOTE - Things work differently for inline boxes: 
+
+- First, the height and width property do not apply. Which means that we cannot use these properties here.
+- Second, we can only specify horizontal paddings and margins on inline elements.
+So only on the left and on the right side.
+
+That's the way the box model works on inline elements. So of course this has some serious limitations. And in order to overcome them, there's another type of box,
+and that's the inline block box.
+
+
+**Inline block** - inline block boxes are technically also inline boxes but which simply work as a block-level box on the inside. So, since they're technically inline elements, they also use up only their content space and cause no line breaks. But, since they work as a block-level box on the inside, the box model applies to them just like in the regular block-level boxes.
+
+All we need to do in order to set an element to an inline box is to set its display property to inline block, and that's it.
+
+It's really important to understand the difference between these three types of boxes, so we can use them correctly in different situations.
+
+#### 3. Positioning schemes
+We have three positioning schemes: the normal flow, floats and absolute positioning.
+
+**Normal flow** - is what happens to an element if you don't do anything to it at all. If you don't float it and if you don't use position absolute on it.
+If you use position relative, then the element is still in a normal flow.
+
+> What the normal flow means - the elements are simply laid out on the page in a > natural order in the code.
+
+
+**FLOATS** - The float property causes an element to be completely taken out of the normal flow and shifted to the left or right as far as possible, until it touches the edge of its containing box, or another floated element.
+When this happens, text and inline elements will wrap around the floated element.
+Also, when an element is floated, its container will not adjust its height to the element, which sometimes can be problematic. The usual solution to this is to use clear fixes. 
+
+**Absolute positioning** - just like with floats, when you set the position property to absolute or also to fixed, the element is taken out of the normal flow. Now, what's different here is that with absolute positioning, the element has no impact on surrounding content or elements at all. In fact, it can even overlap them. So if we want to position an absolutely positioned element on the page, we use the CSS properties top, bottom, left and right to offset it to its
+relatively-positioned container.
+
+An absolutely positioned element can overlap other elements occupying the same space.
+
+And how do we solve this? - CSS solves it for us, actually, using something
+called stacking context.
+
+#### 3. Stacking context: 
+Stacking contexts are what determine in which order elements are rendered on the page. A new stacking context can be created by a different CSS properties, where the most widely known is Z index. Stacking contexts are like layers that form a stack. Layers on the bottom of the stack appear at first, and elements higher up the stack appear on top, overlapping the elements below them.
+
+Presume we have three stacking contexts and each element is using the Z index property on an either relatively or absolutely positioned element. Now between these elements, the one with the higher z index appears on the top, and the one with the lowest z index appears at the bottom. Now, a common misconception is that only the z index property creates new stacking contexts, but that's not the case.
+
+An opacity value different from one, a transform, a filter or other properties,
+will also create new stacking contexts.
+
+That's why sometimes, even with the z index set on a positioned element, the stacking order doesn't work as expected.
+
